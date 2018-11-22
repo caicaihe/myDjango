@@ -3,8 +3,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.shortcuts import render
-from django.views.decorators import csrf
+from .backend import robotExec
 import os
+import time
  
 # 表单
 def run(request):
@@ -26,6 +27,15 @@ def search(request):
 def postenv(request):
     ctx = {}
     if request.POST:
-        key = "执行测试" + ' ' + request.POST['q']
-        ctx['rlt'] = key
+        singalend = robotExec.runRobot()
+        for i in range(10):
+            time.sleep(5)
+            if singalend == 0:
+                backWord = 'doing'
+                ctx['rlt'] = backWord
+                return render(request, "devopsapienv.html", ctx)
+            else:
+                ctx['rlt'] = 'done'
+                return render(request, "devopsapienv.html", ctx)
     return render(request, "devopsapienv.html", ctx)
+

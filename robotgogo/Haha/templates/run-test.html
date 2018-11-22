@@ -2,15 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<title>测试执行</title>
+
 </head>
+
 <body>
-    <form action="/search-post" method="post">
-        {% csrf_token %}
-        <input type="text" name="q">
-        <input type="submit" value="Submit">
-    </form>
- 
-    <p>{{ rlt }}</p>
+    <h1>CaiCloud</h1>
+    <h2>devops测试</h2>
+    <form method="get" action="/test-env">
+    <button type="submit">devops API测试</button>
+</form>
+    <br>
+    <form method="get" action="/pre-test">
+    <button type="submit">镜像仓库测试</button>
+</form>
+
 </body>
 </html>

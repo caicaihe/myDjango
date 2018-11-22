@@ -8,7 +8,7 @@ from . import run_test
 from . import aft_test
  
 urlpatterns = [
-	url(r'^$', view.hello),
+    url(r'^$', view.hello),
     url(r'^hello$', view.hello),
     url(r'^search-form$', search.search_form),
     url(r'^search$', search.search),
@@ -17,5 +17,7 @@ urlpatterns = [
     url(r'^run-test$', run_test.run),
     url(r'^aft-test$', aft_test.run),
     url(r'^result$', aft_test.reportshow),
+    url(r'^test-env$', run_test.postenv),
 
     ]
+

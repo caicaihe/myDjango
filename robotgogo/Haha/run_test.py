@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.shortcuts import render
 from .backend import robotExec
+from . import changeconfig
 import os
 import time
  
@@ -28,6 +29,8 @@ def postenv(request):
     ctx = {}
     if request.POST:
         singalend = robotExec.runRobot()
+        IP = request.POST['q']
+        changeconfig.changeconfigIP(IP)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:

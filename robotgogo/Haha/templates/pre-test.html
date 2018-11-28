@@ -6,11 +6,20 @@
 </head>
 <body>
     <p>请输入测试环境信息</p>
-    <form  method="post">
-        <input type="text" name="q">
+    <form  action="/search-post" method="post">
+       Name:       <input type="text" name="n"><br>
+        IP:       <input type="text" name="q"><br>
+        Registry:<input type="text" name="r"><br>
         <input type="submit" value="Submit">
     </form>
- 
+ <p>{{ rln }}</p>
     <p>{{ rlt }}</p>
+    <p>{{ rlk }}</p><br><br>
+
+
+ <button  onclick="location.href='/'">
+        返回首页
+    </button>
+
 </body>
 </html>

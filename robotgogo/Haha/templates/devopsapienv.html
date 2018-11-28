@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>pre_test</title>
+<title>run_test</title>
         <script type="text/javascript">
         var clickBtn = function() {
             console.log("here");
@@ -11,10 +11,24 @@
     </script>
 </head>
 <body>
-    <h1>请输入被测试环境信息</h1>
-    <form  method="post">
-        {%csrf_token%}
-        被测试环境的IP：<input type="text" name="q">
+    <h1>选择被测试环境</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>IP</th>
+            <th>Registry</th>
+        </tr>
+        {% for item in li%}
+        <tr>
+            <td>{{ item.Name}} </td>
+            <td>{{ item.IP}} </td>
+            <td>{{ item.Registry}} </td>
+        </tr>
+        {% endfor %}
+
+    <form  actoin="/gotest" method="post">
+
+        被测试环境Name：<input type="text" name="nn">
         <br>
         <br>
         <input type="submit" value="执行">

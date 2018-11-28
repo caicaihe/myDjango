@@ -7,6 +7,10 @@ from .backend import robotExec
 from . import changeconfig
 import os
 import time
+import sys
+sys.path.append("..")
+from envmodel.getenv import testdball,testdb
+
  
 # 表单
 def run(request):
@@ -27,10 +31,14 @@ def search(request):
 
 def postenv(request):
     ctx = {}
+    result = testdball(request)
+
     if request.POST:
         singalend = robotExec.runRobot()
-        IP = request.POST['q']
-        changeconfig.changeconfigIP(IP)
+        Nametmp = request.POST['nn']
+        tmpdata = testdb(request, Nametmp)
+        IPtmp = tmpdata[0].IP
+        changeconfig.changeconfigIP(IPtmp)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:
@@ -40,5 +48,5 @@ def postenv(request):
             else:
                 ctx['rlt'] = 'done'
                 return render(request, "devopsapienv.html", ctx)
-    return render(request, "devopsapienv.html", ctx)
+    return render(request, "devopsapienv.html", {'li':result})
 

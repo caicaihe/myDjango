@@ -1,24 +1,31 @@
 # -*- coding: utf-8 -*-
  
-from django.http import HttpResponse
-from django.shortcuts import render_to_response
 import os
- 
+import sys
+sys.path.append("..")
+from django.http import HttpResponse
+from django.shortcuts import render
+
+#from models import envinfo
+from envmodel.models import envinfo
+from envmodel.getenv import testdb
+
 # 表单
 
 
-def run(request):
-    return render_to_response('pre-test.html')
- 
-# 接收请求数据
+
+def search_post(request):
+    ctx = {}
+    if request.POST:
+        Nametmp = request.POST['n']
+        IPtmp = request.POST['q']
+        Registrytmp = request.POST['r']
+        test1 = envinfo(Name=Nametmp, IP=IPtmp, Registry=Registrytmp)
+        test1.save()
+        result = testdb(request, Nametmp)
+        ctx['rln'] = result[0].Name
+        ctx['rlt'] = result[0].IP
+        ctx['rlk'] = result[0].Registry
+    return render(request, 'pre-test.html', ctx)
 
 
-def search(request):
-    request.encoding='utf-8'
-    if 'q' in request.GET:
-        message = '你搜索的内容为: ' + request.GET['q']
-        command = 'echo'+' '+request.GET['q']+'>ddd'
-        os.system(command)
-    else:
-        message = '你提交了空表单'
-    return HttpResponse(message)

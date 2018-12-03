@@ -36,11 +36,11 @@ def postenv(request):
             if singalend == 0:
                 backWord = 'doing'
                 ctx['rlt'] = backWord
-                return render(request, "testapi.html", ctx)
+                return render(request, "devopstest.html", ctx)
             else:
                 ctx['rlt'] = 'done'
-                return render(request, "testapi.html", ctx)
-    return render(request, "testapi.html", {'li': result})
+                return render(request, "devopstest.html", ctx)
+    return render(request, "devopstest.html", {'li': result})
 
 
 def registry(request):

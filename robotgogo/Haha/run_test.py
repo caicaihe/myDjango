@@ -34,7 +34,7 @@ def postenv(request):
     result = testdball(request)
 
     if request.POST:
-        singalend = robotExec.runRobot()
+        singalend = robotExec.runRobot("devops")
         Nametmp = request.POST['nn']
         tmpdata = testdb(request, Nametmp)
         IPtmp = tmpdata[0].IP
@@ -50,3 +50,24 @@ def postenv(request):
                 return render(request, "devopsapienv.html", ctx)
     return render(request, "devopsapienv.html", {'li':result})
 
+
+def run_registry(request):
+    ctx = {}
+    result = testdball(request)
+
+    if request.POST:
+        singalend = robotExec.runRobot("registry")
+        Nametmp = request.POST['nn']
+        tmpdata = testdb(request, Nametmp)
+        IPtmp = tmpdata[0].IP
+        changeconfig.changeconfigIP(IPtmp)
+        for i in range(10):
+            time.sleep(5)
+            if singalend == 0:
+                backWord = 'doing'
+                ctx['rlt'] = backWord
+                return render(request, "registrytest.html", ctx)
+            else:
+                ctx['rlt'] = 'done'
+                return render(request, "registrytest.html", ctx)
+    return render(request, "registrytest.html", {'li':result})

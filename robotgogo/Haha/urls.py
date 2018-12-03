@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^pre-test$', pre_test.search_post),
     #url(r'^insectsql$', pre_test.run),
     url(r'^run-test$', run_test.run),
+    url(r'^registry-test$', run_test.run_registry),
     url(r'^gotest$', run_test.run),
     url(r'^aft-test$', aft_test.run),
     url(r'^result$', aft_test.reportshow),

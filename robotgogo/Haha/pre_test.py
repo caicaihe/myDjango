@@ -10,12 +10,18 @@ from django.shortcuts import render
 from envmodel.models import envinfo
 from envmodel.getenv import testdb
 
+
+import sys
+sys.path.append("..")
+from envmodel.getenv import testdball,testdb
+
 # 表单
 
 
 
 def search_post(request):
     ctx = {}
+    result = testdball(request)
     if request.POST:
         Nametmp = request.POST['n']
         IPtmp = request.POST['q']
@@ -26,6 +32,6 @@ def search_post(request):
         ctx['rln'] = result[0].Name
         ctx['rlt'] = result[0].IP
         ctx['rlk'] = result[0].Registry
-    return render(request, 'pre-test.html', ctx)
+    return render(request, "pre-test.html", {'li': result})
 
 

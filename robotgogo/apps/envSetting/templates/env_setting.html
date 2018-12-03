@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pre_test</title>
+</head>
+<body>
+
+    <p>添加测试环境信息</p>
+    <form  action="/envsetting/" method="post">
+       Name:       <input type="text" name="n"><br>
+        IP:       <input type="text" name="q"><br>
+        Registry:<input type="text" name="r"><br>
+        <input type="submit" value="添加">
+    </form>
+ <p>{{ rln }}</p>
+    <p>{{ rlt }}</p>
+    <p>{{ rlk }}</p><br>
+
+    <p>删除测试环境信息</p>
+    <form  action="/envsetting/" method="post">
+       Name:       <input type="text" name="n"><br>
+        <input type="submit" value="删除">
+    </form>
+ <p>{{ rln }}</p>
+
+ <button  onclick="location.href='/'">
+        返回首页
+    </button>
+    <br><br>
+
+
+<p>环境信息列表</p>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>IP</th>
+            <th>Registry</th>
+        </tr>
+        {% for item in li%}
+        <tr>
+            <td>{{ item.Name}} </td>
+            <td>{{ item.IP}} </td>
+            <td>{{ item.Registry}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -12,7 +12,7 @@ import sys
 
 
 sys.path.append("..")
-from envSetting.getenv import testdball, testdb
+from envSetting.env_CRUD import *
 
 
 # 表单
@@ -28,7 +28,7 @@ def postenv(request):
     if request.POST:
         singalend = robotExec.runRobot("devops")
         Nametmp = request.POST['nn']
-        tmpdata = testdb(request, Nametmp)
+        tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
         changeconfig.changeconfigIP(IPtmp)
         for i in range(10):

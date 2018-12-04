@@ -9,18 +9,21 @@ from django.shortcuts import render
 
 # from models import envinfo
 from .models import envinfo
-from .getenv import testdb
+from .env_CRUD import *
 
 import sys
 
 sys.path.append("..")
-from .getenv import testdball, testdb
+from .env_CRUD import *
 
 
 # 表单
-
-
 def env_setting(request):
+    ctx = {}
+    result = testdball(request)
+    return render(request, "env_setting.html", {'li': result})
+
+def env_add(request):
     ctx = {}
     result = testdball(request)
     if request.POST:
@@ -29,8 +32,13 @@ def env_setting(request):
         Registrytmp = request.POST['r']
         test1 = envinfo(Name=Nametmp, IP=IPtmp, Registry=Registrytmp)
         test1.save()
-        result = testdb(request, Nametmp)
-        ctx['rln'] = result[0].Name
-        ctx['rlt'] = result[0].IP
-        ctx['rlk'] = result[0].Registry
+    return render(request, "env_setting.html", {'li': result})
+
+
+def env_delete(request):
+    ctx = {}
+    result = testdball(request)
+    if request.POST:
+        Nametmp_del = request.POST['nd']
+        testdb_delete(request, Nametmp_del)
     return render(request, "env_setting.html", {'li': result})

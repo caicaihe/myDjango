@@ -51,7 +51,7 @@ def registry(request):
     if request.POST:
         singalend = robotExec.runRobot("registry")
         Nametmp = request.POST['nn']
-        tmpdata = testdb(request, Nametmp)
+        tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
         changeconfig.changeconfigIP(IPtmp)
         for i in range(10):

@@ -24,7 +24,6 @@ def run(request):
 def postenv(request):
     ctx = {}
     result = testdball(request)
-    print("good")
     if request.POST:
         singalend = robotExec.runRobot("devops")
         Nametmp = request.POST['nn']
@@ -53,7 +52,9 @@ def registry(request):
         Nametmp = request.POST['nn']
         tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
+        registrytmp = tmpdata[0].Registry
         changeconfig.changeconfigIP(IPtmp)
+        changeconfig.changeconfigRegistry(registrytmp)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:

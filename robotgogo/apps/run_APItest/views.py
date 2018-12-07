@@ -29,7 +29,7 @@ def postenv(request):
         Nametmp = request.POST['nn']
         tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
-        change_config.changeconfigIP(IPtmp)
+        change_config.change_config_IP(IPtmp)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:

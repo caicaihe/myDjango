@@ -28,7 +28,9 @@ def postenv(request):
         Nametmp = request.POST['nn']
         tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
+        registrytmp = tmpdata[0].Registry
         change_config.change_config_IP(IPtmp)
+        change_config.change_config_registry(registrytmp)
         singalend = robotExec.runRobot("devops")
         for i in range(10):
             time.sleep(5)

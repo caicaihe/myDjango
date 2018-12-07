@@ -77,7 +77,7 @@
         <counts>
           <entry key="dummy" value="1" />
           <entry key="html" value="92" />
-          <entry key="py" value="221" />
+          <entry key="py" value="223" />
           <entry key="requirements" value="39" />
           <entry key="txt" value="6" />
         </counts>
@@ -86,7 +86,7 @@
         <counts>
           <entry key="HTML" value="92" />
           <entry key="PLAIN_TEXT" value="46" />
-          <entry key="Python" value="221" />
+          <entry key="Python" value="223" />
         </counts>
       </usages-collector>
     </session>
@@ -148,8 +148,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/run_APItest/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            <state relative-caret-position="300">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -481,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/run_APItest/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+        <state relative-caret-position="300">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.shortcuts import render
 from .backend import robotExec
-from . import changeconfig
+from . import change_config
 import os
 import time
 import sys
@@ -12,7 +12,7 @@ import sys
 
 
 sys.path.append("..")
-from envSetting.env_CRUD import *
+from env_setting.env_CRUD import *
 
 
 # 表单
@@ -23,13 +23,13 @@ def run(request):
 
 def postenv(request):
     ctx = {}
-    result = testdball(request)
+    result = testdb_all(request)
     if request.POST:
         singalend = robotExec.runRobot("devops")
         Nametmp = request.POST['nn']
         tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
-        changeconfig.changeconfigIP(IPtmp)
+        change_config.changeconfigIP(IPtmp)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:
@@ -45,7 +45,7 @@ def postenv(request):
 def registry(request):
     ctx = {}
 
-    result = testdball(request)
+    result = testdb_all(request)
 
     if request.POST:
         singalend = robotExec.runRobot("registry")
@@ -53,8 +53,8 @@ def registry(request):
         tmpdata = testdb_get(request, Nametmp)
         IPtmp = tmpdata[0].IP
         registrytmp = tmpdata[0].Registry
-        changeconfig.changeconfigIP(IPtmp)
-        changeconfig.changeconfigRegistry(registrytmp)
+        change_config.change_config_IP(IPtmp)
+        change_config.change_config_registry(registrytmp)
         for i in range(10):
             time.sleep(5)
             if singalend == 0:

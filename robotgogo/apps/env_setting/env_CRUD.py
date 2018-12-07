@@ -9,7 +9,7 @@ def testdb_get(request, Nametmp):
     return response
 
 
-def testdball(request):
+def testdb_all(request):
     response = envinfo.objects.all()
     return response
 

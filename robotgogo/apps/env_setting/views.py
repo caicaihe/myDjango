@@ -20,12 +20,12 @@ from .env_CRUD import *
 # 表单
 def env_setting(request):
     ctx = {}
-    result = testdball(request)
+    result = testdb_all(request)
     return render(request, "env_setting.html", {'li': result})
 
 def env_add(request):
     ctx = {}
-    result = testdball(request)
+    result = testdb_all(request)
     if request.POST:
         Nametmp = request.POST['n']
         IPtmp = request.POST['q']
@@ -37,7 +37,7 @@ def env_add(request):
 
 def env_delete(request):
     ctx = {}
-    result = testdball(request)
+    result = testdb_all(request)
     if request.POST:
         Nametmp_del = request.POST['nd']
         testdb_delete(request, Nametmp_del)

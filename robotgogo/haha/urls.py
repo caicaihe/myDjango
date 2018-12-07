@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^$', view.hello),
 
 
-    url(r'^envsetting/', include("envSetting.urls")),
-    url(r'^runAPItest/', include("runAPItest.urls")),
+    url(r'^env_setting/', include("env_setting.urls")),
+    url(r'^run_APItest/', include("run_APItest.urls")),
 ]

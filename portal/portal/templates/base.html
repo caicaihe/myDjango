@@ -19,26 +19,15 @@
             Compass 自动化测试平台
         </a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/env_setting/">测试环境 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/run_APItest/">执行测试</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://192.168.56.102:8081/devops/result">测试结果</a>
-                </li>
-            </ul>
         </div>
     </nav>
 
     <div class="row mt-2">
         <div class="col-sm-8">
-            <div class="shadow-sm p-3 mb-5 bg-white rounded">
+            <div class="shadow-sm p-3 bg-white mb-3 rounded">
                 <div class="container">
                     <div class="d-flex justify-content-between">
-                        <h2>测试环境管理</h2>
+                        <h3>测试环境</h3>
                         <div class="mb-4">
                             <button type="button" data-toggle="modal" data-target="#addNewEnvDialog" class="btn btn-primary mr-2">添加环境</button>
                             <button type="button" class="btn btn-secondary" id="removeEnvBtn">删除环境</button>
@@ -66,11 +55,37 @@
                     </table>
                 </div>
             </div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="d-flex justify-content-between">
+                        <h3>执行测试</h3>
+                        <div class="mb-4">
+                            <select class="custom-select">
+                                <option selected> -- 选择测试环境 -- </option>
+                                {% for item in environments %}
+                                <option value="1">{{ item.Name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary mr-3" data-toggle="tooltip" data-placement="bottom" title="执行 Devops 流水线的测试~">Devops 测试</button>
+                        <button type="button" class="btn btn-secondary mr-3" data-toggle="tooltip" data-placement="bottom" title="执行镜像仓库相关测试~">镜像仓库测试</button>
+                    </div>
+                    <div class="container logs">
+                        testing logs...
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-sm-4">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="container">
-                    Hello, World~
+                    <div class="d-flex justify-content-between">
+                        <h3>测试结果</h3>
+                        <div class="mb-4">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

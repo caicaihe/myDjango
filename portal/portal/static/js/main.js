@@ -1,4 +1,7 @@
 $(function () {
+  // Enable all tooltips
+  $('[data-toggle="tooltip"]').tooltip()
+
   // Handle create environment
   $("#newEnvConfirmBtn").click(function () {
     data = $("#newEnvForm").serializeArray().reduce(function (obj, item) {

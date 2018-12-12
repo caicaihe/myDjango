@@ -4,7 +4,7 @@ from . import view
 
  
 urlpatterns = [
-    url(r'^$', view.hello),
+    url(r'^$', view.main),
 
 
     url(r'^env_setting/', include("env_setting.urls")),
